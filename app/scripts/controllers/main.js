@@ -7,9 +7,9 @@ angular.module('StickItOnApp')
     $scope.tagAddNew = true;
   };
   $scope.newTab = function(){
-    Tabservice.newTab($.param({
-      tabTitle : $scope.inputTitle,
-      tabTags : $scope.inputTags
-    }));
+    Tabservice.newTab({
+      title : $scope.inputTitle,
+      hashtags : $scope.inputTags
+    });
   }
 });

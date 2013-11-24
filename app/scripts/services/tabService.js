@@ -9,7 +9,10 @@ angular.module('StickItOnApp')
       method: type,
       url:url,
       data: data,
-      withCredentials: true
+      withCredentials: true,
+      cache: false,
+      crossDomain: true,
+      headers : { "x-requested-with" : "XMLHttpRequest" }
     }).success(function(data, status){
       if(alert){
         Flashservice.show(' message ', 'success');
@@ -30,7 +33,7 @@ angular.module('StickItOnApp')
       sendRequestToServer('POST', url, data, true);
     },
     getTabs: function(){
-       return sendRequestToServer('GET', url);
+      sendRequestToServer('GET', url);
     }
   };
 });

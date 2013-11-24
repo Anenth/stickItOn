@@ -8,7 +8,8 @@ angular.module('StickItOnApp')
     $http({
       method: type,
       url:url,
-      data: data
+      data: data,
+      withCredentials: true
     }).success(function(data, status){
       if(alert){
         Flashservice.show(' message ', 'success');
@@ -29,7 +30,7 @@ angular.module('StickItOnApp')
       sendRequestToServer('POST', url, data, true);
     },
     getTabs: function(){
-      return sendRequestToServer('GET', url);
+       return sendRequestToServer('GET', url);
     }
   };
 });

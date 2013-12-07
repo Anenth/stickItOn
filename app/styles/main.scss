@@ -1,4 +1,4 @@
-
+$icon-font-path: '../bower_components/sass-bootstrap-compass/fonts/';
 @import "sass-bootstrap-compass/sass/sass-bootstrap";
 
 html, body {
@@ -6,7 +6,34 @@ html, body {
 }
 
 body {
-    background: #fafafa;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    color: #333;
+  background: #fafafa;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #333;
 }
+.box{
+  position: relative;
+  margin: 10px;
+  @include box-shadow(0 0 5px #eee);
+  border:1px #eee solid;
+  .tab-title{
+    margin-bottom: 10px;
+    padding-top: 6px;
+    border-bottom: 1px solid #EEE;
+    text-align: center;
+    line-height: 20px;
+  }
+  .tab-hashtag{
+    color: #ddd;
+  }
+  .delete-icon{
+    position: absolute;
+    top:5px;
+    right: 5px;
+    color:#CCC;
+    cursor: pointer;
+    &:hover{
+      color:#F00;
+    }
+  }
+}
+

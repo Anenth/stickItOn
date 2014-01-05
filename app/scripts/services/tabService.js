@@ -41,6 +41,12 @@ angular.module('StickItOnApp')
     },
     deleteTab: function(data){
       return sendRequestToServer('DELETE', url+encodeURIComponent(data));
+    },
+    getBestData: function(data){
+      return sendRequestToServer('GET', url + 'best/' + encodeURIComponent(data));
+    },
+    getRecentData: function(data){
+      return sendRequestToServer('GET', url + 'recent/' + encodeURIComponent(data));
     }
   };
 });

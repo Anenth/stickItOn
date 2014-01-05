@@ -12,18 +12,30 @@ body {
 }
 .box{
   position: relative;
-  margin: 10px;
+  margin: 10px 0;
   @include box-shadow(0 0 5px #eee);
-  border:1px #eee solid;
+  border:1px #DDD solid;
+  border-radius: 5px;
+  &:hover,&:focus{
+    .delete-icon{
+      @include opacity(1);
+    }
+  }
   .tab-title{
     margin-bottom: 10px;
     padding-top: 6px;
     border-bottom: 1px solid #EEE;
     text-align: center;
     line-height: 20px;
+    .icon{
+      margin-left: 10px;
+      float: left;
+    }
   }
   .tab-hashtag{
     color: #ddd;
+    text-align: right;
+    margin-right: 10px;
   }
   .delete-icon{
     position: absolute;
@@ -31,6 +43,8 @@ body {
     right: 5px;
     color:#CCC;
     cursor: pointer;
+    @include transition(opacity .2s);
+    @include opacity(0);
     &:hover{
       color:#F00;
     }

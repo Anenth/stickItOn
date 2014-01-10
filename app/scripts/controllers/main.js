@@ -4,13 +4,17 @@
 angular.module('StickItOnApp')
 .controller('MainCtrl', function ($scope, Tabservice) {
 
+  function getRecentData(index, hashtags){
+    Tabservice.getRecentData(hashtags).then(function(response){
+      $scope.Tabs[index].data = response.data[0];
+    });
+  }
   /* get all the tabs data*/
   function getAllTabs(){
     Tabservice.getTabs().then(function(response){
-    for(var i in response.data)
-      console.log(response.data[i])
-      $scope.recentData(i,response.data[i].hashtags);
-      $scope.Tabs = response.data;
+    $scope.Tabs = response.data;
+    for(var i in $scope.Tabs)
+      getRecentData(i,$scope.Tabs[i].hashtags);
     });
   }
 
@@ -32,13 +36,11 @@ angular.module('StickItOnApp')
   };
   $scope.bestData = function(index, hashtags){
     Tabservice.getBestData(hashtags).then(function(response){
-      console.log(response.data[0]);
       $scope.Tabs[index].data =response.data[0];
     });
   };
+
   $scope.recentData = function(index, hashtags){
-    Tabservice.getRecentData(hashtags).then(function(response){
-      $scope.Tabs[index].data =response.data[0];
-    });
+    getRecentData(index, hashtags);
   };
 });

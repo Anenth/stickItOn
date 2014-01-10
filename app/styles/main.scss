@@ -16,6 +16,7 @@ body {
   @include box-shadow(0 0 5px #eee);
   border:1px #DDD solid;
   border-radius: 5px;
+  overflow: hidden;
   &:hover,&:focus{
     .delete-icon{
       @include opacity(1);

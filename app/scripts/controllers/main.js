@@ -8,6 +8,8 @@ angular.module('StickItOnApp')
     Tabservice.getRecentData(hashtags).then(function(response){
       $scope.Tabs[index].data = response.data[0];
     });
+    $scope.Tabs[index].recentActive = true;
+    $scope.Tabs[index].bestActive = false;
   }
   /* get all the tabs data*/
   function getAllTabs(){
@@ -38,6 +40,8 @@ angular.module('StickItOnApp')
     Tabservice.getBestData(hashtags).then(function(response){
       $scope.Tabs[index].data =response.data[0];
     });
+    $scope.Tabs[index].recentActive = false;
+    $scope.Tabs[index].bestActive = true;
   };
 
   $scope.recentData = function(index, hashtags){

@@ -2,17 +2,37 @@
   <div class="col-lg-4" ng-repeat="item in Tabs">
     <div class="box">
       <div class="tab-title">
-        <span class="icon toggle-best-data-icon glyphicon glyphicon-fire" ng-click="bestData($index, item.hashtags)"></span>
-        <span class="icon toggle-recent-data-icon glyphicon glyphicon-flash" ng-click="recentData($index, item.hashtags)"></span>
-        {{ item.title }}
-        <span class="delete-icon glyphicon glyphicon-trash" ng-click="delete($index, item.hashtags)"></span>
+        <div class="toggle-icon">
+          <span class="icon toggle-best-data-icon glyphicon glyphicon-fire"
+            ng-class="{active: item.bestActive}"
+            ng-click="bestData($index, item.hashtags)"></span>
+          <span class="icon toggle-recent-data-icon glyphicon glyphicon-flash"
+            ng-class="{active: item.recentActive}"
+            ng-click="recentData($index, item.hashtags)"></span>
+        </div>
+        <h1>{{ item.title }}</h1>
+        <span class="delete-icon glyphicon glyphicon-trash"
+          ng-click="delete($index, item.hashtags)"></span>
       </div>
-      <ul class="tabdata">
-        <li ng-repeat="data in item.data">
-
-          {{data.title}}
-        </li>
-      </ul>
+      <div class="tabdata">
+        <div class="row" ng-repeat="data in item.data">
+          <div class="col-sm-2 user-pic">
+            <a href="{{data.user_url}}" title="{{data.user}}" target="_blank">
+              <img src="{{data.user_img_url}}" alt="{{data.user}}">
+              <span class="sr-only">{{data.user}}</span>
+            </a>
+          </div>
+          <div class="col-sm-10 tabdata-content">
+            <a href="{{data.user_url}}" title="{{data.user}}" target="_blank">
+              <h2 class="user-name">{{data.user}}</h2>
+            </a>
+            <div class="user-attached-content">
+              <img src="{{data.attached_content[0].fullImage.url}}" alt="{{data.attached_content[0].content}}">
+              </div>
+            <p class="user-content">{{data.content}}</p>
+          </div>
+        </div>
+      </div>
       <div class="tab-hashtag">{{ item.hashtags }}</div>
 
     </div>

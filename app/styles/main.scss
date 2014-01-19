@@ -1,36 +1,67 @@
 $icon-font-path: '../bower_components/sass-bootstrap-compass/fonts/';
 @import "sass-bootstrap-compass/sass/sass-bootstrap";
 
-html, body {
-  margin: 20px;
-}
-
 body {
   background: #fafafa;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #333;
+  .container-box{
+    padding: 0 40px;
+    margin: 0 -15px;
+  }
 }
 .box{
   position: relative;
   margin: 10px 0;
   @include box-shadow(0 0 5px #eee);
-  border:1px #DDD solid;
+  border:1px #ddd solid;
   border-radius: 5px;
-  overflow: hidden;
+  word-wrap: break-word;
   &:hover,&:focus{
     .delete-icon{
       @include opacity(1);
     }
   }
+  .tabdata{
+    .row{
+      border-bottom: 1px solid #eee;
+      margin: 0;
+    }
+  }
   .tab-title{
-    margin-bottom: 10px;
     padding-top: 6px;
-    border-bottom: 1px solid #EEE;
+    border-bottom: 1px solid #eee;
     text-align: center;
     line-height: 20px;
-    .icon{
-      margin-left: 10px;
-      float: left;
+    h1{
+      font-size: 1.1em;
+      margin-top: 5px;
+      font-weight: normal;
+    }
+  }
+  h2.user-name{
+    font-size: .9em;
+    margin: 3px 0;
+    font-weight: normal;
+    color: #333;
+    text-decoration: none;
+  }
+  p.user-content{
+    font-size: .8em;
+    color: #444;
+  }
+  .user-pic{
+    padding: 0;
+    img{
+      width: 100%;
+    }
+  }
+  .tabdata-content{
+    padding-left: 5px;
+  }
+  .user-attached-content{
+    img{
+      width:100%;
     }
   }
   .tab-hashtag{
@@ -40,14 +71,28 @@ body {
   }
   .delete-icon{
     position: absolute;
-    top:5px;
+    top:8px;
     right: 5px;
-    color:#CCC;
+    color:#ccc;
     cursor: pointer;
     @include transition(opacity .2s);
     @include opacity(0);
     &:hover{
-      color:#F00;
+      color:#f00;
+    }
+  }
+}
+.toggle-icon{
+  @include border-radius(5%);
+  position: absolute;
+  top:8px;
+  left:2px;
+  .icon{
+    margin-left: 5px;
+    float: left;
+    color: #ddd;
+    &.active{
+      color: #841;
     }
   }
 }

@@ -27,9 +27,14 @@
               <h2 class="user-name">{{data.user}}</h2>
             </a>
             <div class="user-attached-content">
-              <img src="{{data.attached_content[0].fullImage.url}}" alt="{{data.attached_content[0].content}}">
+              <img ng-if="data.attached_content[0].objectType =='photo'"
+              src="{{data.attached_content[0].fullImage.url}}"
+              alt="{{data.attached_content[0].content}}">
+              <div youtube ng-if="data.attached_content[0].objectType =='video'"
+                code="data.attached_content[0].embed.url">
               </div>
-            <p class="user-content">{{data.content}}</p>
+            </div>
+            <p class="user-content"> {{data.content}}</p>
           </div>
         </div>
       </div>

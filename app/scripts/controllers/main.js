@@ -14,9 +14,10 @@ angular.module('StickItOnApp')
   /* get all the tabs data*/
   function getAllTabs(){
     Tabservice.getTabs().then(function(response){
-    $scope.Tabs = response.data;
-    for(var i in $scope.Tabs)
-      getRecentData(i,$scope.Tabs[i].hashtags);
+      $scope.Tabs = response.data;
+      for(var i in $scope.Tabs){
+        getRecentData(i,$scope.Tabs[i].hashtags);
+      }
     });
   }
 
